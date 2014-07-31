@@ -13,4 +13,31 @@ Vehicle = function(make, model, year) {
 	this.getOdometer = function () {
 		return this.odometer;
 	};
+
+	this.operations = [
+		new TireChangeOperation()
+	];
+
+	this.findOperation = function (nameOfOperation) {
+		var result = this.operations.filter(function (operation) {
+			return operation.name = nameOfOperation;
+		})[0];
+		if (!result)
+			throw new Error("This vehicle does not require the maintenance operation : " + nameOfOperation);
+		return result;
+	};
+
+	this.getOperations = function () {
+		return this.operations.map(function (operation) {
+			return operation.name;
+		});
+	};
+
+	this.performOperation = function (nameOfOperation) {
+		this.findOperation(nameOfOperation).performOn(this);
+	};
+
+	this.requiresOperation = function (nameOfOperation) {
+		return this.findOperation(nameOfOperation).isDueFor(this);
+	};
 };
