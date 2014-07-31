@@ -1,6 +1,6 @@
 TireChangeOperation = function () {
 	this.name = "Change tires";
-	this.frequency = 20000;
+	this.frequency = 50000;
 };
 
 TireChangeOperation.prototype = MaintenanceOperation;

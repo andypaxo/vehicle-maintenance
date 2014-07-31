@@ -45,7 +45,7 @@ describe("Vehicle", function () {
 		var sut1 = new Vehicle();
 		var sut2 = new Vehicle();
 
-		sut1.setOdometer(459877);
+		sut1.setOdometer(659877);
 		sut2.setOdometer(565656);
 		sut2.performOperation("Change tires");
 

@@ -3,8 +3,8 @@ describe("Tire change", function () {
 		var vehicle = new Vehicle();
 		var sut = new TireChangeOperation();
 
-		vehicle.setOdometer(32000);
-		
+		vehicle.setOdometer(82000);
+
 		expect(sut.isDueFor(vehicle)).toBe(true);
 	});
 
