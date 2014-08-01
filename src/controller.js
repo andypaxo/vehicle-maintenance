@@ -8,12 +8,26 @@ $(function () {
 		$("#add-vehicle-type").append(options);
 	};
 
+	var updateVehicleDescription = function (vehicle, element) {
+		element.find(".vehicle-odometer").text(vehicle.getOdometer());
+	};
+
 	var addVehicleToPage = function (vehicle) {
-		var element = $("#vehicle-panel").clone();
+		var element = $("#vehicle-panel").clone().removeAttr("id");
 		element.find(".vehicle-make").text(vehicle.make);
 		element.find(".vehicle-model").text(vehicle.model);
 		element.find(".vehicle-year").text(vehicle.year);
+		updateVehicleDescription(vehicle, element);
+
 		$("#garage").append(element);
+
+		element.find(".vehicle-update-odometer").on("click", function () {
+			$("#update-odometer-button").off("click").on("click", function () {
+				var newReading = Number.parseInt($("#update-odometer-km").val());
+				vehicle.setOdometer(newReading);
+				updateVehicleDescription(vehicle, element);
+			})
+		});
 
 		var searcher = new google.search.ImageSearch();
 		searcher.setSearchCompleteCallback(null, function (result) {
@@ -38,5 +52,5 @@ $(function () {
 
 	// TEMP ///////////////////////
 
-	addVehicleToPage(new PetrolVehicle("Mitsubishi", "Lancer", 2009));
+	addVehicleToPage(new PetrolVehicle("Mitsubishi", "Lancer", 2008));
 });
