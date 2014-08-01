@@ -18,6 +18,9 @@
 .info-panel.row {
 	margin : 0;
 }
+.info-panel button {
+	margin-bottom : 15px;
+}
 .vehicle-image {
 	width : 100%;
 	height : 200px;

@@ -29,6 +29,10 @@ $(function () {
 			})
 		});
 
+		element.find(".remove-vehicle-button").on("click", function () {
+			element.remove();
+		});
+
 		var searcher = new google.search.ImageSearch();
 		searcher.setSearchCompleteCallback(null, function (result) {
 			if (searcher.results.length)
@@ -52,5 +56,5 @@ $(function () {
 
 	// TEMP ///////////////////////
 
-	addVehicleToPage(new PetrolVehicle("Mitsubishi", "Lancer", 2008));
+	addVehicleToPage(new PetrolVehicle("Mitsubishi", "RVR", 2012));
 });
