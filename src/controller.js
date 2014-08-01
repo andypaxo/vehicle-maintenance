@@ -1,5 +1,6 @@
 $(function () {
 	var factory = new VehicleFactory();
+	var garage = new Garage();
 
 	var setup = function () {
 		var options = factory.getAvailableTypes().map(function (type) {
@@ -50,6 +51,7 @@ $(function () {
 
 		element.find(".remove-vehicle-button").on("click", function () {
 			element.remove();
+			garage.remove(vehicle);
 		});
 
 		updateVehicleDescription(vehicle, element);
@@ -73,12 +75,12 @@ $(function () {
 		var year = Number.parseInt($("#add-vehicle-year").val());
 		var type = $("#add-vehicle-type").val();
 		var vehicle = factory.manufacture(type, make, model, year);
+		garage.add(vehicle);
 		addVehicleToPage(vehicle);
 	});
 
 	setup();
 
-	// TEMP ///////////////////////
-
-	addVehicleToPage(new PetrolVehicle("Mitsubishi", "RVR", 2012));
+	// Add a sample vehicle, just for fun
+	addVehicleToPage(new PetrolVehicle("Chevrolet", "Corvette", 1971));
 });
