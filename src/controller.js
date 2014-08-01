@@ -14,6 +14,14 @@ $(function () {
 		element.find(".vehicle-model").text(vehicle.model);
 		element.find(".vehicle-year").text(vehicle.year);
 		$("#garage").append(element);
+
+		var searcher = new google.search.ImageSearch();
+		searcher.setSearchCompleteCallback(null, function (result) {
+			if (searcher.results.length)
+				element.find(".vehicle-image").css("background-image", "url(" + searcher.results[0].unescapedUrl + ")");
+		});
+		searcher.setResultSetSize(1);
+		searcher.execute(vehicle.year + " " + vehicle.make + " " + vehicle.model);
 	};
 
 	$("#add-vehicle-button").on("click", function (e) {
