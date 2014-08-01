@@ -3,12 +3,13 @@
     <title>Vehicle Maintenance</title>
         <meta name="description" content="">
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="./css/garage.css">
     </head>
     <body>
 	    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">Your garage</a>
+					<a class="navbar-brand" href="#">My garage</a>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="./specs.html">Unit tests</a></li>
@@ -16,8 +17,13 @@
 			</div>
 		</nav>
 
-    	<div class="container">
-	    	<button class="btn btn-primary" data-toggle="modal" data-target="#add-vehicle-modal">Add a vehicle</button>
+    	<div class="container space-below">
+    		<div class="col-sm-12">
+		    	<button class="btn btn-primary" data-toggle="modal" data-target="#add-vehicle-modal">Add a vehicle</button>
+	    	</div>
+	    </div>
+
+	    <div class="container" id="garage">
 	    </div>
 
     	<div class="modal fade" id="add-vehicle-modal">
@@ -49,14 +55,38 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Add</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal" id="add-vehicle-button">Add</button>
 					</div>
 				</div>
 			</div>
     	</div>
 
+    	<div class="hidden">
+    		<div id="vehicle-panel" class="col-sm-4">
+	    		<div class="info-panel">
+		    		<p class="vehicle-info">
+		    			<span class="vehicle-year"></span>
+		    			<span class="vehicle-make"></span>
+	    			</p>
+	    			<h1 class="vehicle-info vehicle-model snug"></h1>
+	    		</div>
+    		</div>
+    	</div>
+
 	    <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
 	    <script type="text/javascript" src="./src/bootstrap.min.js"></script>
+
+	    <script type="text/javascript" src="src/model/maintenanceOperation.js"></script>
+		<script type="text/javascript" src="src/model/tireChangeOperation.js"></script>
+		<script type="text/javascript" src="src/model/replaceBatteryOperation.js"></script>
+		<script type="text/javascript" src="src/model/changeOilOperation.js"></script>
+		<script type="text/javascript" src="src/model/vehicle.js"></script>
+		<script type="text/javascript" src="src/model/petrolVehicle.js"></script>
+		<script type="text/javascript" src="src/model/dieselVehicle.js"></script>
+		<script type="text/javascript" src="src/model/electricVehicle.js"></script>
+		<script type="text/javascript" src="src/model/vehicleFactory.js"></script>
+		<script type="text/javascript" src="src/model/garage.js"></script>
+
 	    <script type="text/javascript" src="./src/controller.js"></script>
     </body>
 </html>
