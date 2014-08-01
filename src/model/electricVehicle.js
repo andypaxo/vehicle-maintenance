@@ -3,3 +3,5 @@ ElectricVehicle = function () {
 
 	this.operations.push(new ReplaceBatteryOperation());
 };
+
+ElectricVehicle.description = "Electric";
