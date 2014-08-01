@@ -3,4 +3,4 @@ ChangeOilOperation = function () {
 	this.frequency = 10000;
 };
 
-ReplaceBatteryOperation.prototype = MaintenanceOperation;
+ChangeOilOperation.prototype = MaintenanceOperation;

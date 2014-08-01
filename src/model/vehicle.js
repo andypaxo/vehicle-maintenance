@@ -20,7 +20,7 @@ Vehicle = function(make, model, year) {
 
 	this.findOperation = function (nameOfOperation) {
 		var result = this.operations.filter(function (operation) {
-			return operation.name = nameOfOperation;
+			return operation.name == nameOfOperation;
 		})[0];
 		if (!result)
 			throw new Error("This vehicle does not require the maintenance operation : " + nameOfOperation);
@@ -38,6 +38,7 @@ Vehicle = function(make, model, year) {
 	};
 
 	this.requiresOperation = function (nameOfOperation) {
-		return this.findOperation(nameOfOperation).isDueFor(this);
+		var operation = this.findOperation(nameOfOperation);
+		return operation.isDueFor(this);
 	};
 };
