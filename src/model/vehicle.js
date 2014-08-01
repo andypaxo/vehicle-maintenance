@@ -37,6 +37,11 @@ Vehicle = function(make, model, year) {
 		this.findOperation(nameOfOperation).performOn(this);
 	};
 
+	this.kmUntilDue = function (nameOfOperation) {
+		var operation = this.findOperation(nameOfOperation);
+		return operation.kmUntilDueFor(this);
+	};
+
 	this.requiresOperation = function (nameOfOperation) {
 		var operation = this.findOperation(nameOfOperation);
 		return operation.isDueFor(this);

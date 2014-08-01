@@ -12,7 +12,9 @@ $(function () {
 		element.find(".vehicle-odometer").text(vehicle.getOdometer());
 		vehicle.getOperations().forEach(function (operation) {
 			var needsMaintenance = vehicle.requiresOperation(operation);
-			element.find("[data-type='"+operation+"'] .maintenance-ok").toggle(!needsMaintenance);
+			element.find("[data-type='"+operation+"'] .maintenance-ok").
+				toggle(!needsMaintenance).
+				text("Due in " + vehicle.kmUntilDue(operation) + " km");
 			element.find("[data-type='"+operation+"'] .maintenance-due").toggle(needsMaintenance);
 		});
 	};

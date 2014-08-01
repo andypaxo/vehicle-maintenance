@@ -7,6 +7,10 @@ MaintenanceOperation = {
 
 	isDueFor : function (vehicle) {
 		return this.lastPerformedAt + this.frequency <= vehicle.getOdometer();
+	},
+
+	kmUntilDueFor : function (vehicle) {
+		return this.lastPerformedAt + this.frequency - vehicle.getOdometer();
 	}
 };
 

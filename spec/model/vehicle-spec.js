@@ -35,6 +35,21 @@ describe("Vehicle", function () {
 		expect(sut.getOperations()).toContain("Change tires");
 	});
 
+	it("must know when its tires need changing", function () {
+		var sut = new Vehicle();
+		sut.setOdometer(45000);
+		expect(sut.kmUntilDue("Change tires")).toBe(5000);
+	});
+
+	it("must know when its tires need changing next, after they've been done", function () {
+		var sut = new Vehicle();
+		var sut = new Vehicle();
+		sut.setOdometer(45000);
+		sut.performOperation("Change tires");
+		sut.setOdometer(55000);
+		expect(sut.kmUntilDue("Change tires")).toBe(40000);
+	});
+
 	it("must know if its tires need changing", function () {
 		var sut = new Vehicle();
 		sut.setOdometer(190000);
