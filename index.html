@@ -6,10 +6,10 @@
         <link rel="stylesheet" href="./css/garage.css">
     </head>
     <body>
-	    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+	    <nav class="navbar navbar-default navbar-static-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">My garage</a>
+					<span class="navbar-brand" href="#"><span class="glyphicon glyphicon-road"></span>My garage</a>
 				</div>
 				<ul class="nav navbar-nav navbar-right">
 					<li><a href="./specs.html">Unit tests</a></li>
@@ -87,7 +87,7 @@
     	<div class="hidden">
     		<div id="vehicle-panel" class="col-sm-4">
 	    		<div class="info-panel row">
-	    			<img class="vehicle-image" />
+	    			<div class="vehicle-image"></div>
 		    		<p class="col-sm-12">
 		    			<span class="vehicle-year"></span>
 		    			<span class="vehicle-make"></span>
@@ -99,12 +99,20 @@
     				</div>
     				<button class="btn btn-primary btn-xs col-sm-3 vehicle-update-odometer" data-toggle="modal" data-target="#update-odometer-modal" title="Update odometer"><span class="glyphicon glyphicon-dashboard"></span></button>
 
+    				<div class="vehicle-maintenance-panel"></div>
+
     				<div class="col-sm-8"></div>
     				<button class="remove-vehicle-button btn btn-danger btn-sm col-sm-3">Remove</button>
 	    		</div>
     		</div>
 
-    		<div id="vehicle-maintenance">
+    		<div id="vehicle-maintenance" class="vehicle-maintenance">
+				<div class="col-sm-8">
+					<span class="maintenance-ok bg-success">OK</span>
+					<span class="maintenance-due bg-warning">Due</span>
+					<span class="maintenance-description"></span>
+				</div>
+				<button class="btn btn-primary btn-xs col-sm-3 vehicle-perform-operation" title="Log maintenance"><span class="glyphicon glyphicon-wrench"></span></button>
     		</div>
     	</div>
 
